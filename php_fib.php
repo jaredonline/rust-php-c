@@ -1,17 +1,23 @@
 <?php
 
-$cache = array();
-
 function fib($at) {
     if ($at == 0 || $at == 1) {
         return $at;
-    } else if (isset($cache[$at])) {
-        return $cache[$at];
     } else {
-        $val = fib($at - 1) + fib($at - 2);
-        $cache[$at] = $val;
-        return $val;
+        $total  = 1;
+        $parent = 1;
+        $gp     = 0;
+
+        for ($i = 1; $i < $at; $i++) {
+            $total  = $parent + $gp;
+            $gp     = $parent;
+            $parent = $total;
+        }
+
+        return $total;
     }
 }
 
-echo fib(33) . "\n";
+for ($i = 0; $i < 100000; $i ++) {
+    fib(92);
+}

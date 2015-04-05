@@ -1,6 +1,6 @@
 #ifndef __RUST_FIB
 #define __RUST_FIB
 
-long rust_fib(long at);
+unsigned long rust_fib(unsigned long at);
 
 #endif
